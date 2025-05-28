@@ -12,25 +12,23 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity(name = "customer")
+@Entity(name = "pizza")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerEntity implements Serializable{
+public class PizzaEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 30)
     private String name;
-    @Column(nullable = false, length = 20)
-    private String lastName;
-    @Column(nullable = false, length = 40)
-    private String address;
-    @Column(nullable = false, length = 20)
-    private String phone;
-    @Column(length = 30)
-    private String email;
+    @Column(nullable = false)
+    private Double price;
+    @Column(length = 40)
+    private String description;
+    @Column(nullable = false)
+    private Boolean available;
 
 }
