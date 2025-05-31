@@ -1,4 +1,4 @@
-package com.ale94.pizza_order_api.api.models.requests;
+package com.ale94.pizza_order_api.api.models.responses;
 
 import java.io.Serializable;
 
@@ -11,8 +11,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class CustomerRequest implements Serializable {
+public class CustomerResponse implements Serializable {
 
+    private Long id;
     private String name;
     private String lastName;
     private String address;
