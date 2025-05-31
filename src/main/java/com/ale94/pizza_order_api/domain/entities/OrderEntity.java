@@ -26,7 +26,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Entity(name = "order")
+@Entity(name = "orders")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
