@@ -2,10 +2,12 @@ package com.ale94.pizza_order_api.domain.entities;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import com.ale94.pizza_order_api.util.PaymentMethod;
 import com.ale94.pizza_order_api.util.Status;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,10 +18,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity(name = "order")
 @Data
@@ -53,4 +58,13 @@ public class OrderEntity implements Serializable {
     @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
 
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(
+        cascade = CascadeType.ALL,
+        fetch = FetchType.EAGER,
+        orphanRemoval = true,
+        mappedBy = "order"
+    )
+    private List<OrderDetailEntity> orderdetails;
 }
