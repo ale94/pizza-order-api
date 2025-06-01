@@ -1,3 +1,4 @@
+-- Insertar datos en customer
 INSERT INTO customer (name, last_name, address, phone, email)
 VALUES (
         'Alejandro',
@@ -62,6 +63,7 @@ VALUES (
         '3886451263',
         'ramirez_luisa@gmail.com'
     );
+-- Insertar datos en pizza
 INSERT INTO pizza (name, price, description, available)
 VALUES (
         'Muzzarella',
