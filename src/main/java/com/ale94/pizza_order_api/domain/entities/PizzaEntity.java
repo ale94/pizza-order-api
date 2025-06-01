@@ -32,7 +32,7 @@ public class PizzaEntity implements Serializable {
     private String name;
     @Column(nullable = false)
     private Double price;
-    @Column(length = 40)
+    @Column(length = 100)
     private String description;
     @Column(nullable = false)
     private Boolean available;
