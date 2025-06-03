@@ -1,6 +1,7 @@
 package com.ale94.pizza_order_api.api.models.requests;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.ale94.pizza_order_api.util.PaymentMethod;
 
@@ -16,8 +17,7 @@ import lombok.NoArgsConstructor;
 public class OrderRequest implements Serializable {
 
     private String idCustomer;
-    private String idPizza;
     private PaymentMethod paymentMethod;
     private String observations;
-
+    private List<ItemOrder> items;
 }
