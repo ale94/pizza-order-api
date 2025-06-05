@@ -40,13 +40,11 @@ public class OrderEntity implements Serializable {
     @Column(nullable = false)
     private LocalDateTime orderDate;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private Status status;
+    @Column(nullable = false, length = 50)
+    private String status;
 
-    @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
-    private PaymentMethod paymentMethod;
+    @Column(nullable = false, length = 50)
+    private String paymentMethod;
 
     @Column(nullable = false, length = 30)
     private String deliveryAddress;
@@ -54,17 +52,15 @@ public class OrderEntity implements Serializable {
     @Column(length = 50)
     private String observations;
 
+    private Double total;
+    private Integer quantity;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
 
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @OneToMany(
-        cascade = CascadeType.ALL,
-        fetch = FetchType.EAGER,
-        orphanRemoval = true,
-        mappedBy = "order"
-    )
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "order")
     private List<OrderDetailEntity> orderdetails;
 }
