@@ -16,7 +16,7 @@ CREATE TABLE pizza (
     price DOUBLE PRECISION NOT NULL
 );
 -- Crear los tipos ENUM
-CREATE TYPE payment_method_enum AS ENUM ('credito', 'debito', 'efectivo', 'transferencia');
+--CREATE TYPE payment_method_enum AS ENUM ('credito', 'debito', 'efectivo', 'transferencia');
 CREATE TYPE status_enum AS ENUM ('cancelado', 'entregado', 'pendiente');
 -- Tabla orders
 CREATE TABLE orders (
@@ -24,8 +24,10 @@ CREATE TABLE orders (
     delivery_address VARCHAR(30) NOT NULL,
     observations VARCHAR(50),
     order_date TIMESTAMP(6) NOT NULL,
-    payment_method payment_method_enum NOT NULL,
-    status status_enum NOT NULL,
+    payment_method VARCHAR(50) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    total DOUBLE PRECISION,
+    quantity INTEGER,
     customer_id BIGINT REFERENCES customer(id)
 );
 -- Tabla order_detail
