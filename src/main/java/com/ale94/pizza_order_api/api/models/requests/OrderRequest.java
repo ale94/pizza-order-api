@@ -21,5 +21,5 @@ public class OrderRequest implements Serializable {
     private Long idCustomer;
     private String paymentMethod;
     private String observations;
-    private List<ItemOrder> items;
+    private List<ItemOrderRequest> items;
 }

@@ -4,8 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.ale94.pizza_order_api.util.PaymentMethod;
-import com.ale94.pizza_order_api.util.Status;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,13 +18,14 @@ import lombok.NoArgsConstructor;
 public class OrderResponse implements Serializable {
 
     private Long id;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
     private LocalDateTime orderDate;
-    private Status status;
-    private PaymentMethod paymentMethod;
+    private String status;
+    private String paymentMethod;
     private String deliveryAddress;
     private String observations;
-    private CustomerResponse customer;
-    private List<PizzaResponse> pizzas;
+    private String customerName;
+    private List<ItemOrderResponse> items;
     private Integer quantity;
     private Double total;
 
