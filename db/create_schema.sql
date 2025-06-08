@@ -17,7 +17,7 @@ CREATE TABLE pizza (
 );
 -- Crear los tipos ENUM
 --CREATE TYPE payment_method_enum AS ENUM ('credito', 'debito', 'efectivo', 'transferencia');
-CREATE TYPE status_enum AS ENUM ('cancelado', 'entregado', 'pendiente');
+--CREATE TYPE status_enum AS ENUM ('cancelado', 'entregado', 'pendiente');
 -- Tabla orders
 CREATE TABLE orders (
     id BIGSERIAL PRIMARY KEY,
@@ -29,6 +29,14 @@ CREATE TABLE orders (
     total DOUBLE PRECISION,
     quantity INTEGER,
     customer_id BIGINT REFERENCES customer(id)
+);
+-- Tabla item_order
+CREATE TABLE item_order (
+    id BIGSERIAL PRIMARY KEY,
+    name VARCHAR(100),
+    quantity VARCHAR(100),
+    price DOUBLE PRECISION NOT NULL,
+    order_id BIGINT REFERENCES orders(id)
 );
 -- Tabla order_detail
 CREATE TABLE order_detail (
