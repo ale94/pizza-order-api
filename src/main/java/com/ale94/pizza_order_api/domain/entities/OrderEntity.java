@@ -62,5 +62,10 @@ public class OrderEntity implements Serializable {
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "order")
+    private List<ItemOrderEntity> items;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, orphanRemoval = true, mappedBy = "order")
     private List<OrderDetailEntity> orderdetails;
 }
